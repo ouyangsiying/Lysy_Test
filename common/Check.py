@@ -7,15 +7,15 @@ class Check:
 #比较字典的key
     def compre_keys(self,expect_keys,actual_keys):
         if len(expect_keys) != len(actual_keys):
-            # print("----建不同")
-            return -1, "键不相同" + str(len(expect_keys)) + str(len(actual_keys))
+                # print("----建不同")
+                return -1, "键不相同" + str(len(expect_keys)) + str(len(actual_keys))
         else:
-            for key in expect_keys:
-                if key in actual_keys:
-                    pass
-                else:
-                    return -1, "不存在的键" + key
-                return 1,"键相同"
+                for key in expect_keys:
+                    if key in actual_keys:
+                        pass
+                    else:
+                        return -1, "不存在的键" + key
+                    return 1,"键相同"
 
     def comparison_result(self,expect,actual):
         expect_keys = list(expect.keys())
@@ -23,31 +23,31 @@ class Check:
         code, msg = self.compre_keys(expect_keys, actual_keys)
 
         if code == -1:
-            self.status = -1
-            return self.status
+                self.status = -1
+                return self.status
         else:
-            for key in expect_keys:
-                if expect[key] != actual[key]:
-                    self.status = -1
-                    return self.status
-                else:
-                    if isinstance(expect[key], dict):
-                        return self.comparison_result(expect[key], actual[key])
-                    # 判断是否为数组
-                    elif isinstance(expect[key], list):
-                        self.status = self.comparison_array(expect[key], actual[key])
+                for key in expect_keys:
+                    if expect[key] != actual[key]:
+                        self.status = -1
                         return self.status
                     else:
-                        if type(expect[key]) == type(actual[key]):
-                            # 类型一样
-                            if self.status == -1:
-                                pass
-                            else:
-                                self.status = 1
+                        if isinstance(expect[key], dict):
+                            return self.comparison_result(expect[key], actual[key])
+                        # 判断是否为数组
+                        elif isinstance(expect[key], list):
+                            self.status = self.comparison_array(expect[key], actual[key])
+                            return self.status
                         else:
-                            # 类型不一样
-                            self.status = -1
-            return self.status
+                            if type(expect[key]) == type(actual[key]):
+                                # 类型一样
+                                if self.status == -1:
+                                    pass
+                                else:
+                                    self.status = 1
+                            else:
+                                # 类型不一样
+                                self.status = -1
+                return self.status
 
     def comparison_array(self, array1, array2):
         if type(array1) != type(array2):

@@ -13,7 +13,7 @@ class Tool:
                 load_json_dict = json.load(load_file)
                 return load_json_dict
         except Exception as e:
-            print("读文件异常", e)
+            print("读文件异常,文件名:"+ filename, e)
             exit()
 
     # 读excel
@@ -23,7 +23,7 @@ class Tool:
             excel_file = xlrd.open_workbook(config.rootPath+"test_report/" + filename + ".xls", formatting_info=True)
             return excel_file
         except Exception as e:
-            print("读文件异常", e)
+            print("读文件异常"+ filename, e)
             exit()
 
     # 将json字符串格式化
