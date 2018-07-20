@@ -5,8 +5,8 @@
 			"addr": "action/password_reset"
 		},
 		{
-			"name": "重置密码",
-			"addr": "action/password_reset"
+			"name": " 创建队费",
+			"addr": "action/cashbook"
 		}
 	]
 }

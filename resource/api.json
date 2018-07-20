@@ -55,5 +55,72 @@
 				"must": 1
 			}
 		]
+	},
+	"cashbook": {
+		"url": "/cashbook",
+		"method": "post",
+		"data": [
+			{
+				"name": "_token",
+				"type": 3,
+				"must": 1
+			},
+			{
+				"name": "team_id",
+				"type": 1,
+				"must": 1
+			},
+			{
+				"name": "type",
+				"type": 1,
+				"must": 1
+			},
+			{
+				"name": "user_ids",
+				"type": 1,
+				"must": 0
+			},
+			{
+				"name": "fee",
+				"type": 1,
+				"must": 1
+			},
+			{
+				"name": "fee_arg",
+				"type": 1,
+				"must": 0
+			},
+			{
+				"name": "add_date",
+				"type": 1,
+				"must": 1
+			},
+			{
+				"name": "id",
+				"type": 1,
+				"must": 0
+			},
+			{
+				"name": "category_id",
+				"type": 1,
+				"must": 1
+			},
+			{
+				"name": "title",
+				"type": 1,
+				"must": 0
+			},
+			{
+				"name": "note",
+				"type": 1,
+				"must": 0
+			},
+			{
+				"name": "into_team",
+				"type": 1,
+				"must": 0
+			}
+
+		]
 	}
 }
